@@ -1,7 +1,11 @@
 import streamlit as st
 from cryptofuzz import Ethereum
-from hexer import mHash
+from random import choice as c
 import time
+
+def mHash():
+    """ Generated random hash without repetition (default size: 64) """
+    return ''.join(c('0123456789abcdef') for _ in range(64))
 
 def main():
     st.title("Ethereum Rich Wallet Finder")
@@ -44,7 +48,7 @@ def main():
                             f.write('\n=========================================================\n')
                 
                 counter += 1
-                time.sleep(0.1)  # Prevent browser from becoming unresponsive
+                time.sleep(0.1)
 
 if __name__ == "__main__":
     main()
